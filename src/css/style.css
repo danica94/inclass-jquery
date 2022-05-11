@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,400;1,900&display=swap');
+
+
+/* ======================================================
+   Responsive Styling and Layout
+   =======================================================  */
+
+/* ========== Use Border Box model ============ */
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  /* ======== Basic Responsive Images and Video ========= */
+  img,video{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* ======== Responsive Embedded Video ================= */
+  /* to use this add a div with class videoWrapper around the iframe markup copied from YouTube or Vimeo. Then also add a ratio-16-9 (most common) or ratio-4-3 class to the wrapper depending on the aspect ratio of your video */
+  /* More info here: https://codepen.io/profstein/pen/mArLRj */
+  .videoWrapper {
+      position: relative;
+      padding-top: 25px;
+      height: 0;
+    clear:both;
+    outline:1px solid red;
+  }
+  
+  .videoWrapper.ratio-16-9{
+      padding-bottom: 56.25%; /* 16:9 */
+  }
+  
+  .videoWrapper.ratio-4-3{
+      padding-bottom: 75%; /* 4:3 */
+  }
+  
+  .videoWrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+  
+  /* ================= ===========================
+  TYPOGRAPHY
+  ================================================ */
+  /* The html and body selectors below set the base font for the entire page */
+html {font-size: 1em;}
+
+body {
+  font-family: Poppins,sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  
+/*   there are other ways to do this but it's good to remember not to let text run right up to the edge of borders or color changes, images etc.' */
+/*   padding: 1em; */
+}
+
+/* This adds space between paragraphs and list items
+   NOTE: most Navigations use list items so you will need to 
+   explicity set the margins on those so this rule doesn't 
+   mess up your navigation styling */
+p, li {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+/* Base Styling for headings  */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-family: Poppins, sans-serif;
+}
+
+/* For each of your headings at minimum set the margin, size, line-height. Adjust font-weight and other properties as needed. */
+
+h1 {
+  font-size: 5.063em;
+  line-height: 1;
+  margin: 0 0 0.5em 0;
+}
+
+h2 {
+  font-size: 3.375em;
+  line-height: 1.2;
+  margin: 1.5em 0 0.5em 0;
+}
+
+h3 {
+  font-size: 2.25em;
+  line-height: 1;
+  margin: 1.5em 0 0.25em 0;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: 1;
+  margin: 1.5em 0 0.5em 0;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 1;
+  margin: 1.5em 0 0.5em 0;
+  
+}
+
+h6 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 1em 0 0 0;
+  font-weight: 400; /* normal */
+  text-transform: uppercase;
+}
+
+  /* 
+==============================
+CARD LAYOUT and STYLING
+============================== */
+.cards{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: .5rem;
+}
+
+.card{
+  box-shadow: 0px 1px 5px #555;
+  box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 500ms, opacity 500ms;
+}
+.card.hidden{
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+  transition: visibility 0s linear 500ms, opacity 500ms;
+}
+.card_text{
+  padding:.5rem;
+}
+
+.card_image{
+  padding:0;
+  margin: 0;
+  /* height: 200px; */
+  overflow: hidden;
+}
+
+
+/* 
+==============================
+BUTTONS
+============================== */
+.filters{
+  padding:.5rem;
+  margin-top: 1rem;
+}
+
+/* from Phantom Template, see footer for link */
+.button{
+  -moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 4px;
+		border: 0;
+		box-shadow: inset 0 0 0 2px #585858;
+		color: #585858 !important;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 900;
+		height: 3.5em;
+		letter-spacing: 0.35em;
+		line-height: 3.45em;
+		overflow: hidden;
+		padding: 0 1.25em 0 1.6em;
+		text-align: center;
+		text-decoration: none;
+		text-overflow: ellipsis;
+		text-transform: uppercase;
+		white-space: nowrap;
+}
+
+.button.active{
+  background-color: #585858;
+			color: #ffffff !important;
+}
+
+
+
+/* 
+==============================
+HEADER AND FOOTER STYLING
+============================== */
+.site-footer a, .site-footer a:active, .site-footer a:visited{
+  color: yellow;
+}
+.site-footer{
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #555;
+  color: #fff;
+  line-height: 1.5;
+}
+
+
+
+/* 
+==============================
+HEADING
+============================== */
+.site-header h1{
+  font-weight: 100;
+}
+.page-heading{
+  background-color: #555;
+}
+
+@media screen and (min-width:800px){
+  .intro, .additional{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+  
+  .intro h2{
+    text-align:right;
+    font-weight: 900;
+  }
+  
+  .additional{
+    border-top: 1px solid #fff;
+  }
+  
+  .example{
+    max-width:63ch;
+    margin:1rem auto;
+  }
+  
+  .example .code{
+/*     margin: 0; */
+    padding: 1rem;
+    border:1px dashed #eee;
+  }
+  
+}
+
+/* 
+==============================
+Accordion on home page
+============================== */
+
+.accordion{
+  outline: 1px solid #333;
+  font-family: sans-serif;
+}
+.accordion-header{
+  background-color: #555;
+  color: #fff;
+  padding:.5rem;
+  cursor:pointer;
+}
+.accordion-header h3{
+  margin: 0;
+  padding: .5rem;
+  font-weight: 100;
+  font-size: 2rem;
+}
+.accordion-item{
+  padding: .5rem;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+
+.accordion footer{
+  border-top: 1px dashed #555;
+  padding-top:1rem;
+}
+
+.accordion footer a{
+
+}
+

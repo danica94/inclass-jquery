@@ -1,0 +1,34 @@
+#Eleventy ignores ----------------------
+# dependencies installed by npm
+node_modules
+
+# build artifacts
+public
+
+# secrets and errors
+.env
+.log
+
+#macOS ignores ----------------------
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+
+#Windows ignores ----------------------
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
